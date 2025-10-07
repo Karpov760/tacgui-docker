@@ -12,7 +12,7 @@ services:
       - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
 
   tacgui:
-    image: tacgui:4
+    image: karpov760/tacgui
     depends_on:
       - db
     privileged: true
