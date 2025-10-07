@@ -1,4 +1,4 @@
-# Tacacagui docker
+# Tacacsgui docker
 
 Hi there! This is my dockerfile for [tacacsgui](https://github.com/tacacsgui/tacacsgui), so you can run it anywhere, not only ubuntu:20.04 as in default installation script [tgui_install](https://github.com/tacacsgui/tgui_install).
 
