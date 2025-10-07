@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:5.7.29
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=some_root_password
+    ports:
+      - '3306:3306'
+    volumes:
+      - db:/var/lib/mysql
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+
+  tacgui:
+    image: tacgui:4
+    depends_on:
+      - db
+    privileged: true
+    ports:
+      - '4443:4443'
+      - '8008:8008'
+    volumes:
+      - ./config.php:/opt/tacacsgui/web/api/config.php
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro  # To run systemctl inside docker
+volumes:
+  db:
+    driver: local
