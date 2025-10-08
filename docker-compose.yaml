@@ -12,11 +12,12 @@ services:
       - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
 
   tacgui:
-    image: karpov760/tacgui
+    image: karpov780/tacgui
     depends_on:
       - db
     privileged: true
     ports:
+      - '49:49'
       - '4443:4443'
       - '8008:8008'
     volumes:
