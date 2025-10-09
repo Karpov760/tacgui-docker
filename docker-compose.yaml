@@ -16,6 +16,7 @@ services:
     depends_on:
       - db
     privileged: true
+    cgroup: host
     ports:
       - '49:49'
       - '4443:4443'
